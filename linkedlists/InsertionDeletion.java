@@ -71,10 +71,56 @@ public class InsertionDeletion {
         return head;
     }
 
+    public static Node insertAtFirst(Node head, int data){
+        Node newNode = new Node (data);
+        if (head == null) {
+            head = newNode;
+            return head;
+        }
+        newNode.next = head;
+        return newNode;
+    }
+
+    public static Node insertAtLast(Node head, int data){
+        Node newNode = new Node (data);
+        if (head == null) {
+            head = newNode;
+            return head;
+        }
+        Node temp = head;
+        while (temp.next != null){
+            temp = temp.next;
+        }
+        temp.next = newNode;
+        return head;
+    }
+
+    public static Node insertAtKthPosition(Node head, int data, int k){
+        Node newNode = new Node (data);
+        if (head == null) {
+            head = newNode;
+            return head;
+        }
+        if (k==1) return insertAtFirst(head, data);
+        int count = 0;
+        Node temp = head;
+        Node prev  = null;
+        while (temp != null) {
+            count++;
+            if (count == k) {
+                prev.next = newNode;
+                newNode.next = temp;
+                break;
+            }
+            prev = temp;
+            temp = temp.next;
+        }
+        return head;
+    }
+
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5};
         Node head = convert(arr);
-        print(deleteElement(head, 6));
+        print(insertAtKthPosition(head, 2, 3));
     }
-
 }
