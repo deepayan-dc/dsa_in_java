@@ -14,6 +14,13 @@ class DNode {
         this.prev = prev;
         this.next = next;
     }
+    public static void printList(DNode head) {
+        DNode temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+    }
 }
 
 public class DoublyLinkedList {
