@@ -12,12 +12,10 @@ public class LengthOfLoop {
         }
         if (j == null || j.next == null) return 0;
         i = i.next;
-        j = j.next.next;
         length++;
         while (i != j) {
             length++;
             i = i.next;
-            j = j.next.next;
         }
         return length;
     }
